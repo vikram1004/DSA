@@ -1,0 +1,22 @@
+class Solution
+{
+    public:
+    
+    void myFunc(Node *root, vector<int>&v)
+    {
+        if(root!=NULL){
+            myFunc(root->left, v);
+            v.push_back(root->data);
+            myFunc(root->right, v);
+        } 
+        else
+            return;
+    }
+    
+    vector<int> inOrder(Node* root)
+    {
+      vector<int>v;
+      myFunc(root, v);
+      return v;
+    }
+};
